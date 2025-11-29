@@ -12,6 +12,8 @@
 
 ### 補足：Apache IceBergとは
 
+[引用：Apache Iceberg とは何ですか?](https://aws.amazon.com/jp/what-is/apache-iceberg/)
+
 ## ハンズオン
 
 ## まとめ
