@@ -10,9 +10,19 @@
 
 ## Amazon S3がテーブル機能をアップデートで出したって？
 
+### 補足：Apache IceBergとは
+
 ## ハンズオン
 
 ## まとめ
+
+## 参考
+
+- [表形式データの大規模ストレージ - Amazon S3 Tables - AWS](https://aws.amazon.com/jp/s3/features/tables/)
+- [Amazon S3 Metadata が、すべての S3 オブジェクトのメタデータのサポートを開始](https://aws.amazon.com/jp/blogs/news/amazon-s3-metadata-now-supports-metadata-for-all-your-s3-objects/)
+- [新しい Amazon S3 テーブル: 分析ワークロード向けに最適化されたストレージ](https://aws.amazon.com/jp/blogs/aws/new-amazon-s3-tables-storage-optimized-for-analytics-workloads/)
+- [Amazon S3 テーブルを使用して管理されたトランザクションデータレイクを構築する](https://aws.amazon.com/jp/blogs/storage/build-a-managed-transactional-data-lake-with-amazon-s3-tables/)
+- [Amazon S3 Tables と Amazon SageMaker Lakehouse の統合の一般提供を開始](https://aws.amazon.com/jp/blogs/news/amazon-s3-tables-integration-with-amazon-sagemaker-lakehouse-is-now-generally-available/)
 
 ## AWS CLI インストールと SSO ログイン手順 (Linux環境)
 
