@@ -1,6 +1,13 @@
 # 【AWS】Amazon S3 Tablesは分析で使えるんすか？実際に検証してみた！
 
+このREADMEは`AWSに触るなんてムリムリ！※無理じゃなかった？！2ndシーズン Advent Calendar 2025`の一環として作成されました。
+
+## この記事のポイント
+
+- Amazon S3 Tablesの基本的な使い方を理解する
+
 ## はじめに
+
 この記事では「この前リリースされた機能って実際に動かすとどんな感じなんだろう」とか「もしかしたら内容次第では使えるかも？？」などAWSサービスの中でも特定の機能にフォーカスして検証していく記事です。
 
 主な内容としては実践したときのメモを中心に書きます。（忘れやすいことなど）
@@ -13,6 +20,14 @@
 ### 補足：Apache IceBergとは
 
 [引用：Apache Iceberg とは何ですか?](https://aws.amazon.com/jp/what-is/apache-iceberg/)
+
+## Amazon S3 Tablesとは
+
+## セットアップ
+
+## まずは手元で計算
+
+todo: pandasとicebergで計算
 
 ## ハンズオン
 
