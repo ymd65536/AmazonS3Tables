@@ -17,19 +17,66 @@
 
 ## Amazon S3がテーブル機能をアップデートで出したって？
 
+これまでのS3は「ファイル（オブジェクト）」を置く場所でしたが、このアップデートにより、S3そのものが**「テーブル（表形式のデータ）」を直接扱う機能**を持つようになりました。いくつか特徴があるので見ていきましょう。
+
+### 「テーブルバケット」という新しい概念
+
+従来の汎用バケットとは別に、構造化データ専用の**「テーブルバケット」**が作成できるようになりました。
+この中には「Namespace（名前空間）」と「Table（テーブル）」という階層構造が作れます。
+
+### Apache Iceberg を標準サポート
+
+オープンソースの高速なテーブルフォーマットである「Apache Iceberg」をネイティブでサポートしています。
+自分たちでIcebergの管理をしなくても、S3が裏側でいい感じにやってくれます。
+
+### 圧倒的なパフォーマンス向上
+
+自分でデータレイクを構築する場合に比べて、クエリのスループットが最大3倍、トランザクション性能が最大10倍向上するとされています。
+
 ### 補足：Apache IceBergとは
+
+簡単に説明すると「データレイク上の巨大なファイルを、まるでデータベースのテーブルのように扱えるようにする技術（テーブルフォーマット）」です。
+
+もともとNetflix社が、従来のデータ管理手法（Hiveなど）の限界を克服するために開発し、現在はオープンソース（OSS）として広く普及しています。Amazon S3 Tablesも、このIcebergを標準の形式として採用しています。
 
 [引用：Apache Iceberg とは何ですか?](https://aws.amazon.com/jp/what-is/apache-iceberg/)
 
-## Amazon S3 Tablesとは
-
-## セットアップ
-
-## まずは手元で計算
-
-todo: pandasとicebergで計算
-
 ## ハンズオン
+
+説明を聞いていてもわからないことが多いので、実際に触ってみましょう。
+今回はAWS CloudShellを使って進めていきます。権限はAdministratorAccessが必要です。
+
+### 1. テーブルバケットの作成
+
+```bash
+# アカウントIDを変数に格納
+ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+REGION="ap-northeast-1" # お使いのリージョンに変更してください
+BUCKET_NAME="my-s3-tables-handson-${ACCOUNT_ID}"
+
+# テーブルバケットの作成
+aws s3tables create-table-bucket --name $BUCKET_NAME --region $REGION
+```
+
+### 2. 名前空間の作成
+
+```bash
+# バケットARNを変数に格納
+BUCKET_ARN="arn:aws:s3tables:${REGION}:${ACCOUNT_ID}:bucket/${BUCKET_NAME}"
+
+# ネームスペース (データベース) の作成
+aws s3tables create-namespace \
+    --table-bucket-arn $BUCKET_ARN \
+    --namespace handson_db
+```
+
+```bash
+aws s3tables create-table \
+    --table-bucket-arn $BUCKET_ARN \
+    --namespace handson_db \
+    --name user_logs \
+    --format ICEBERG
+```
 
 ## まとめ
 
